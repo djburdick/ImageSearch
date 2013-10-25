@@ -11,6 +11,8 @@
 #import "UIImageView+AFNetworking.h"
 #import "ImageCell.h"
 
+static const int ImageDivisor = 8;
+
 @interface ViewController ()
 @property (nonatomic, weak) IBOutlet UISearchBar *searchBar;
 @property (nonatomic, strong) NSMutableArray *imageResults;
@@ -69,7 +71,7 @@
     NSString *imageThumbWidth = [self.imageResults[indexPath.row] valueForKeyPath:@"width"];
     NSString *imageThumbHeight = [self.imageResults[indexPath.row] valueForKeyPath:@"height"];
     
-    return CGSizeMake([imageThumbWidth intValue] / 4, [imageThumbHeight intValue] / 4);
+    return CGSizeMake([imageThumbWidth intValue] / ImageDivisor, [imageThumbHeight intValue] / ImageDivisor);
 }
 
 - (UIEdgeInsets)collectionView:
