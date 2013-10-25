@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "AFNetworking.h"
 #import "UIImageView+AFNetworking.h"
+#import "ImageCell.h"
 
 @interface ViewController ()
 @property (nonatomic, weak) IBOutlet UISearchBar *searchBar;
@@ -33,9 +34,6 @@
     [super viewDidLoad];
 
     self.searchBar.delegate = self;
-	// Do any additional setup after loading the view, typically from a nib.
-    
-    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"CellIdentifier"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -46,34 +44,37 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 2;
+    return [self.imageResults count];
 }
 
 - (NSInteger)numberOfSectionsInCollectionView: (UICollectionView *)collectionView {
-    return [self.imageResults count];
+    return 1;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"CellIdentifier";
     
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier
+    ImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier
                                                                            forIndexPath:indexPath];
     cell.backgroundColor = [UIColor whiteColor];
+
+    [cell.imageView setImageWithURL:[NSURL URLWithString:[self.imageResults[indexPath.row] valueForKeyPath:@"url"]]];
+
     return cell;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    NSString *imageThumbWidth = [self.imageResults[indexPath.row] valueForKeyPath:@"tbWidth"];
-    NSString *imageThumbHeight = [self.imageResults[indexPath.row] valueForKeyPath:@"tbHeight"];
+    NSString *imageThumbWidth = [self.imageResults[indexPath.row] valueForKeyPath:@"width"];
+    NSString *imageThumbHeight = [self.imageResults[indexPath.row] valueForKeyPath:@"height"];
     
-    return CGSizeMake([imageThumbWidth intValue], [imageThumbHeight intValue]);
+    return CGSizeMake([imageThumbWidth intValue] / 4, [imageThumbHeight intValue] / 4);
 }
 
 - (UIEdgeInsets)collectionView:
 (UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-    return UIEdgeInsetsMake(50, 20, 50, 20);
+    return UIEdgeInsetsMake(10, 5, 10, 5);
 }
 
 #pragma mark - UISearchDisplay delegate
@@ -92,6 +93,8 @@
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
     [searchBar setShowsCancelButton:NO animated:YES];
+
+    [self.searchBar resignFirstResponder];
 
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=%@", [searchBar.text stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding]]];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];

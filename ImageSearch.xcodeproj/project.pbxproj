@@ -30,6 +30,7 @@
 		226A6D661819F15A008993CF /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 226A6D5B1819F15A008993CF /* AFURLConnectionOperation.m */; };
 		226A6D671819F15A008993CF /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 226A6D5D1819F15A008993CF /* AFXMLRequestOperation.m */; };
 		226A6D681819F15A008993CF /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 226A6D5F1819F15A008993CF /* UIImageView+AFNetworking.m */; };
+		226A6D6B181B041A008993CF /* ImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 226A6D6A181B041A008993CF /* ImageCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,8 @@
 		226A6D5D1819F15A008993CF /* AFXMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFXMLRequestOperation.m; path = ../../ios_pixster_orig/pixster/AFNetworking/AFXMLRequestOperation.m; sourceTree = "<group>"; };
 		226A6D5E1819F15A008993CF /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImageView+AFNetworking.h"; path = "../../ios_pixster_orig/pixster/AFNetworking/UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		226A6D5F1819F15A008993CF /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+AFNetworking.m"; path = "../../ios_pixster_orig/pixster/AFNetworking/UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
+		226A6D69181B041A008993CF /* ImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCell.h; sourceTree = "<group>"; };
+		226A6D6A181B041A008993CF /* ImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +146,8 @@
 				226A6D261819F0DD008993CF /* AppDelegate.h */,
 				226A6D271819F0DD008993CF /* AppDelegate.m */,
 				226A6D291819F0DD008993CF /* Main.storyboard */,
+				226A6D69181B041A008993CF /* ImageCell.h */,
+				226A6D6A181B041A008993CF /* ImageCell.m */,
 				226A6D2C1819F0DD008993CF /* ViewController.h */,
 				226A6D2D1819F0DD008993CF /* ViewController.m */,
 				226A6D2F1819F0DD008993CF /* Images.xcassets */,
@@ -314,6 +319,7 @@
 				226A6D681819F15A008993CF /* UIImageView+AFNetworking.m in Sources */,
 				226A6D641819F15A008993CF /* AFNetworkActivityIndicatorManager.m in Sources */,
 				226A6D611819F15A008993CF /* AFHTTPRequestOperation.m in Sources */,
+				226A6D6B181B041A008993CF /* ImageCell.m in Sources */,
 				226A6D241819F0DD008993CF /* main.m in Sources */,
 				226A6D601819F15A008993CF /* AFHTTPClient.m in Sources */,
 			);
